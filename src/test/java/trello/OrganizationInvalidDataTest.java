@@ -29,7 +29,6 @@ public class OrganizationInvalidDataTest extends BaseTest {
                 Arguments.of("must be unique", "invalid data 5", "name test", "ftp")
         );
     }
-
     @DisplayName("Create organization with invalid valid data")
     @ParameterizedTest(name = "Display name: {0}, desc: {1}, name:{2}, website:{3}")
     @MethodSource("createInvalidOrganizationData")

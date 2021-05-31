@@ -18,6 +18,6 @@ public class DeleteOrganization extends BaseTest {
                     .then()
                     .statusCode(200);
         } else
-            System.out.println("The organization was not created, delete was omitted");//
+            System.out.println("The organization was not created, delete was omitted");
     }
 }

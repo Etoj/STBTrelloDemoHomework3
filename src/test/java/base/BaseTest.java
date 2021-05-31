@@ -8,14 +8,10 @@ import org.junit.jupiter.api.BeforeAll;
 public class BaseTest {
 
     protected final static String BASE_URL ="https://api.trello.com/1";
-    protected final static String BOARDS = "boards";
-    protected final static String LISTS = "lists";
-    protected final static String CARDS = "cards";
     protected final static String ORGANIZATIONS = "organizations";
 
     protected final static String KEY = "";
     protected final static String TOKEN = "";
-    protected static final String TOKEN_GIT = "";
 
     private static RequestSpecBuilder reqBuilder;
     protected static RequestSpecification reqSpec;
