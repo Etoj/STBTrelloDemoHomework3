@@ -3,7 +3,6 @@ package trello;
 import base.BaseTest;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -12,6 +11,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static io.restassured.RestAssured.given;
+import static org.assertj.core.api.Assertions.*;
 
 public class OrganizationInvalidDataTest extends BaseTest {
 
@@ -49,12 +49,15 @@ public class OrganizationInvalidDataTest extends BaseTest {
                 .when()
                 .post(BASE_URL + "/" + ORGANIZATIONS)
                 .then()
-                .statusCode(400)
+                .statusCode(200)
                 .extract()
                 .response();
 
         JsonPath json = response.jsonPath();
-        Assertions.assertThat(json.getString("desc")).isEqualTo(organization.getDesc());
+        assertThat(json.getString("displayName")).isEqualTo(organization.getDisplayName());
+        assertThat(json.getString("desc")).isEqualTo(organization.getDesc());
+        assertThat(json.getString("name")).isEqualTo(organization.getName());
+        assertThat(json.getString("website")).isEqualTo(organization.getWebsite());
 
         organizationId = json.getString("id");
 
